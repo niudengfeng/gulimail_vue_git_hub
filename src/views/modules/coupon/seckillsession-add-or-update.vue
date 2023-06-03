@@ -15,10 +15,10 @@
         <el-input v-model="dataForm.name" placeholder="场次名称"></el-input>
       </el-form-item>
       <el-form-item label="每日开始时间" prop="startTime">
-        <el-date-picker type="datetime" placeholder="每日开始时间" v-model="dataForm.startTime"></el-date-picker>
+        <el-date-picker value-format="yyyy-MM-dd HH:mm:ss" type="datetime" placeholder="每日开始时间" v-model="dataForm.startTime"></el-date-picker>
       </el-form-item>
       <el-form-item label="每日结束时间" prop="endTime">
-        <el-date-picker type="datetime" placeholder="每日结束时间" v-model="dataForm.endTime"></el-date-picker>
+        <el-date-picker value-format="yyyy-MM-dd HH:mm:ss" type="datetime" placeholder="每日结束时间" v-model="dataForm.endTime"></el-date-picker>
       </el-form-item>
       <el-form-item label="启用状态" prop="status">
         <el-input v-model="dataForm.status" placeholder="启用状态"></el-input>
@@ -39,10 +39,10 @@ export default {
       dataForm: {
         id: 0,
         name: "",
-        startTime: "",
-        endTime: "",
+        startTime: '',
+        endTime: '',
         status: "",
-        createTime: ""
+        createTime: ''
       },
       dataRule: {
         name: [
@@ -99,8 +99,7 @@ export default {
               name: this.dataForm.name,
               startTime: this.dataForm.startTime,
               endTime: this.dataForm.endTime,
-              status: this.dataForm.status,
-              createTime: new Date()
+              status: this.dataForm.status
             })
           }).then(({ data }) => {
             if (data && data.code === 0) {
